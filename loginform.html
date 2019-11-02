@@ -82,7 +82,7 @@ a{
 }
 </style>
 <body>
-	<form action="otherpage.html">	
+	<form>	
 			<h2>Sign In</h2>
 			<span class="error" id="nameerr"></span>
 		    <input type="text" placeholder="Username" name="uname" id="uname" required="true"><br>
@@ -101,16 +101,18 @@ a{
 function test(){
 	var username = document.getElementById('uname').value;
 	var password = document.getElementById('psw').value;
-	var nameerr = pswerr = true;
-  if (username == "admin" && password=="admin123") {
+	
+  if (username == "admin" && password == "admin123") {
     window.location = 'otherpage.html';
   }
   else if(username=="" && password==""){
   	 printError("nameerr", "Please enter user name");
   	 printError("pswerr","Please enter password")
   }
-  else{
-  	alert("Please Fill Correct Username and Password!!!");
+  else if (username!=="admin" || password!=="admin123"){
+  	var click = confirm("Please Fill Correct Username and Password!!!!");
+  	if(click==true)
+  	window.location.reload();
   }
 
 }
