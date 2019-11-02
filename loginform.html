@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Practical Test</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+	body {font-family: Arial, Helvetica, sans-serif;}
+form {
+		box-sizing: border-box;
+		width: 280px;
+		margin: 100px auto 0;
+		box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+		padding-bottom: 40px;
+		border-radius: 3px;
+	}
+
+input[type=text], input[type=password] {
+  width: 90%;
+  padding: 12px 20px;
+  margin: 10px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 25px;
+  background-color: #f5f5f0;
+  margin-left: 10px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 90%;
+  border-radius: 25px;
+  margin-left: 10px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+form h2 {
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+h2 {
+  height: 70px;
+  width: 100%;
+  font-size: 18px;
+  background: #4CAF50;
+  color: white;
+  text-align: center;
+  line-height: 250%;
+  border-radius: 3px 3px 0 0;
+  /*box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.2);*/
+}
+/*	margin-left: 550px;
+	margin-right: 550px;
+	margin-top: 10%;
+}*/
+a{
+	
+	font-size: 12px;
+}
+.error {
+    color: red;
+    font-size: 12px;
+}
+</style>
+<body>
+	<form action="otherpage.html">	
+			<h2>Sign In</h2>
+			<span class="error" id="nameerr"></span>
+		    <input type="text" placeholder="Username" name="uname" id="uname" required="true"><br>
+		    <span class="error" id="pswerr"></span>
+		    <input type="password" placeholder="Password" name="psw" id= "psw" required="true">
+		    <br>
+		    <a href="#" style="margin-left: 40px;">Forget Username/Password?</a>
+		    <br><br>
+		    <button type="submit" onclick="test()">SIGN IN</button>
+		    <br><br>
+		    <label style="margin-left: 50px">Don't have an account</label><br>
+		    <a href="#" style="margin-left: 80px;">SIGN UP NOW</a>
+	</form>
+</body>
+<script>
+function test(){
+	var username = document.getElementById('uname').value;
+	var password = document.getElementById('psw').value;
+	var nameerr = pswerr = true;
+  if (username == "admin" && password=="admin123") {
+    window.location = 'otherpage.html';
+  }
+  else if(username=="" && password==""){
+  	 printError("nameerr", "Please enter user name");
+  	 printError("pswerr","Please enter password")
+  }
+  else{
+  	alert("Please Fill Correct Username and Password!!!");
+  }
+
+}
+function printError(elemId, hintMsg) {
+    document.getElementById(elemId).innerHTML = hintMsg;
+}
+</script>
+</html>
